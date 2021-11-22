@@ -1,0 +1,21 @@
+from Falsk import Flask, jsonify, request 
+import requests, json
+app=Flask(__name__)
+url= "https://balancell.com/"
+@app.route('/',methode=['POST'])
+def create_new_data():
+  if request.methode == 'POST':
+     new_type = request.json['type']
+     new_org_id = request.json['org_id']
+     new_bem_id = request.json['bem_id']
+     new_email = request.json['email']
+     new_start = request.json['start']
+     new_end = request.json['end']
+     create_data = { 'type': str(new_type), 'org_id': str(new_org_id), 'bem_id': str(new_bem_id), 'email': str(new_email), 'start': str(new_start), 'end': str(new_end),'sub_start_end': str(new_end-new_start)} 
+          
+     response = requests.post(url, data=json.dumps(create_data),
+     headers={ 'Content-Type': 'application/json'})
+     return response.content
+if __name__ == '__main__':
+   app.run(host='localhost', debug=False, use_reloader=TRUE)
+
