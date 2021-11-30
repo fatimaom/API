@@ -4,7 +4,7 @@ app=Flask(__name__)
 url= "http://localhost:5000/handle"
 @app.route('/',methods=['POST'])
 def create_new_data():
-  # if request.methode == 'POST':
+   if request.methode == 'POST':
     # new_type = request.json['type']
      #new_org_id = request.json['org_id']
     # new_bem_id = request.json['bem_id']
