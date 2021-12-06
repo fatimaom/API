@@ -1,4 +1,4 @@
-from Flask import Flask, jsonify, request 
+from flask import Flask, jsonify, request 
 import requests, json
 app=Flask(__name__)
 url= "http://localhost:5000/handle"
@@ -17,5 +17,5 @@ def create_new_data():
      headers={ 'Content-Type': 'application/json'})
      return response.content
 if __name__ == '__main__':
-   app.run(host='localhost', debug=False, use_reloader=TRUE)
+   app.run(host='localhost', debug=True, use_reloader=True)
 
